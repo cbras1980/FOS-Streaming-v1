@@ -1,4 +1,4 @@
-/vendor
 /cache/*
 .idea
 /.idea
+config.php
