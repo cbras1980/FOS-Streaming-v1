@@ -1,7 +1,6 @@
 <?php
 ob_start();
 include('config.php');
-logincheck();
 set_time_limit(0);
 if(!isset($_GET['id'])) {
     die();
@@ -10,6 +9,15 @@ if(!isset($_GET['id'])) {
 $id = $_GET['id'];
 $user = User::find($id);
 $setting = Setting::first();
+
+if(isset($_GET['p'])) {
+    if($user->password != $_GET['p']) {
+        logincheck();
+    }
+}
+else {
+    logincheck();
+}
 
 if(isset($_GET['e2'])) {
     echo "#NAME FOS-Streaming \r\n";

@@ -15,7 +15,8 @@ if (isset($_GET['logout'])) {
 
 function logincheck() {
     if (!isset($_SESSION['user_id'])){
-        header("location: index.php");
+        //header("location: index.php");
+        header("location: index.php",  true,  301 );  exit;
     }
 }
 
